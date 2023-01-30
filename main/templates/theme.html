@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+<div class="container">
+    <h1>1</h1>
+    <h1 class="text-center text-uppercase mt-5">Тема {{main_theme.number}} - {{main_theme.name}}</h1>
+    {% if 'answers' in request.get_full_path %}
+        <h1>Ответы</h1>
+    {% elif 'practice' in request.get_full_path%}
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+      <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <strong class="me-auto">Практика</strong>
+          <small>Напоминание</small>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+          Время выполнения практики обязательно будет учитываться во время проверки задания
+        </div>
+      </div>
+    </div>
+        <h1>Практика нафиг блин</h1>
+        <div class="" align="center">
+            <h6 class="pt-4">Всратый тест блинб</h6>
+            <form class="col-4 p-4 border rounded" style="text-align: left !important;">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                    <label class="form-check-label" for="exampleRadios1">
+                    Ответ номер которого 1
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" checked>
+                    <label class="form-check-label" for="exampleRadios2">
+                    Ответ номер которого 2
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" checked disabled>
+                    <label class="form-check-label" for="exampleRadios3">
+                    Ответ номер которого 3
+                    </label>
+                </div>
+                <button class="btn btn-primary mt-4" type="submit">Отправить</button>
+                <p class="mt-4">Правильный ответ: 1</p>
+
+            </form>
+        </div>
+        <div class="" align="center">
+            <h6 class="pt-4">Всратый тест блинб</h6>
+            <form class="col-4 p-4 border rounded" style="text-align: left !important;">
+                <ol class="list-group list-group-numbered">
+                    <li class="list-group-item">Штука</li>
+                    <li class="list-group-item">Дрюка</li>
+                    <li class="list-group-item">Хуюка</li>
+                </ol>
+                <p class="pt-2">Введите правильную последовательность в поле без пробелов</p>
+                <div class="input-group mb-3">
+                    <button class="btn btn-primary" type="button" id="button-addon1">Отправить</button>
+                    <input type="text" class="form-control" placeholder="Сюда писать ответ..." aria-label="Example text with button addon" aria-describedby="button-addon1">
+                </div>
+                <p class="mt-4">Правильный ответ: 132</p>
+            </form>
+        </div>   
+            
+    {% else %}
+    {{main_theme.text | safe}}
+    {% endif %}
+    
+    
+</div>
+<script src="{% static '/js/option_switch.js'%}"
+{% endblock %}

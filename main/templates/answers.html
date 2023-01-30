@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+<div class="container">
+    <h1>1</h1>
+    {% if 'answers' in request.get_full_path %}
+        <h1>Ответы</h1>
+    {% endif %}
+    <h1 class="text-center text-uppercase mt-5">Тема {{main_theme.number}} - {{main_theme.name}}</h1>
+    {{main_theme.text | safe}}
+    <button>123</button>
+    
+</div>
+<script src="{% static '/js/option_switch.js'%}"
+{% endblock %}
